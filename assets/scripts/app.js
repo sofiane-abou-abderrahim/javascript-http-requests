@@ -1,5 +1,7 @@
 const listElement = document.querySelector('.posts');
 const postTemplate = document.getElementById('single-post');
+const form = document.querySelector('#new-post form');
+const fetchButton = document.querySelector('#available-posts button');
 
 function sendHttpRequest(method, url, data) {
   const promise = new Promise((resolve, reject) => {
@@ -44,5 +46,11 @@ async function createPost(title, content) {
   // and now we will actually need to enhance this method because now, we need to be able to also add a body to the request
 }
 
-fetchPosts();
-createPost('DUMMY', 'A dummy post!');
+fetchButton.addEventListener('click', fetchPosts);
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const enteredTitle = event.currentTarget.querySelector('#title').value;
+  const enteredContent = event.currentTarget.querySelector('#content').value;
+
+  createPost(enteredTitle, enteredContent);
+});
