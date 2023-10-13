@@ -41,7 +41,6 @@ async function createPost(title, content) {
   };
 
   sendHttpRequest('POST', 'https://jsonplaceholder.typicode.com/posts', post);
-  // and now we will actually need to enhance this method because now, we need to be able to also add a body to the request
 }
 
 fetchButton.addEventListener('click', fetchPosts);
@@ -55,9 +54,7 @@ form.addEventListener('submit', event => {
 
 postList.addEventListener('click', event => {
   if (event.target.tagName === 'BUTTON') {
-    // console.log('Clicked on button!');
     const postId = event.target.closest('li').id;
-    // console.log(postId);
     sendHttpRequest(
       'DELETE',
       `https://jsonplaceholder.typicode.com/posts/${postId}`
