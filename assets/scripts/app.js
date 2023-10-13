@@ -23,7 +23,7 @@ function sendHttpRequest(method, url, data) {
     xhr.onerror = function () {
       // console.log(xhr.response);
       // console.log(xhr.status);
-      reject('Failed to send request!');
+      reject(new Error('Failed to send request!'));
     };
 
     xhr.send(JSON.stringify(data));
