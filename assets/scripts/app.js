@@ -10,7 +10,7 @@ function sendHttpRequest(method, url, data) {
     body: JSON.stringify(data)
   }).then(response => {
     return response.json();
-  }); // Now fetch() by default is promise based, so that's the first native promise API we see in this course
+  });
 }
 
 async function fetchPosts() {
